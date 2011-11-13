@@ -1,0 +1,88 @@
+USAGE
+
+Example usage as eZ Publish Template Operators
+
+Here is some example template code which uses the operator in a way which is more friendly to cached configurations (default usage).
+
+{* Cache block key is array( $userID, $userRoleIDs )
+ * This should ensure that this code is cached uniquely by each userID and role_id_list combination
+ *}
+{* Disable cache on page *}
+{set-block scope=root variable=cache_ttl}0{/set-block}
+{def $anonymousRoleID=1
+     $currentUser=fetch( 'user', 'current_user' )
+     $userID=$currentUser.contentobject_id
+     $userRoleIDs=$currentUser.role_id_list}
+
+{cache-block keys=array( $userID, $userRoleIDs )}
+{* Check to see if current user is member of specific role (anonymous) *}
+{def $isMemberOfRole=$userID|member_of_role( $anonymousRoleID )}
+{* Report the results of the above isMemberOfRole check *}
+{if $isMemberOfRole}
+isMemberOfRole Success! This userID {$userID} is a member of this anonymousRoleID {$anonymousRoleID} ...<br /><br />
+{else}
+isMemberOfRole Failure! This userID {$userID} is *not* a member of this anonymousRoleID {$anonymousRoleID} ...<br /><br />
+{/if}
+
+{def $isMemberOfRoleByUser=$currentUser|member_of_role_by_user( $anonymousRoleID )}
+
+{* Report the results of the above isMemberOfRoleByUser check *}
+{if $isMemberOfRoleByUser}
+isMemberOfRoleByUser Success! This userID {$userID} is a member of this anonymousRoleID {$anonymousRoleID} ...<br /><br />
+{else}
+isMemberOfRoleByUser Failure! This userID {$userID} is *not* a member of this anonymousRoleID {$anonymousRoleID} ...<br /><br />
+{/if}
+{/cache-block}
+
+<hr>
+<hr>
+
+
+Using PHP Class and method within eZ Publish context (within any part of the PHP systems)
+
+This code can also be used statically within custom PHP code without making any changes.
+
+<?php
+// Assumes autoloads in place above the following static object method call
+
+$userID = eZUser::currentUser()->attribute( 'contentobject_id' );
+// $userID = 10;
+$roleID = 1;
+
+// Tests which use the static object methods provided to test for current user role membership
+
+$isMemberOfRole = BCMemberOfRoleByUserIDOperator::member_of_role( $userID, $roleID );
+
+if( $isMemberOfRole )
+{
+    echo "Current userID '" . $userID . "' is member of anonymous roleID '" . $roleID . "'.\n\n";
+}
+else
+{
+    echo "Current userID '" . $userID . "' is *not* member of anonymous roleID '" . $roleID . "'.\n\n";
+}
+
+$isMemberOfRoleByUser = BCMemberOfRoleByUserIDOperator::member_of_role_by_user( $user, $roleID );
+
+if( $isMemberOfRoleByUser )
+{
+    echo "Current userID '" . $userID . "' is member of anonymous roleID '" . $roleID . "'.\n\n";
+}
+else
+{
+    echo "Current userID '" . $userID . "' is *not* member of anonymous roleID '" . $roleID . "'.\n\n";
+}
+
+$isMemberOfRoleByUserID = BCMemberOfRoleByUserIDOperator::member_of_role_by_user_id( $userID, $roleID );
+
+if( $isMemberOfRoleByUserID )
+{
+    echo "Current userID '" . $userID . "' is member of anonymous roleID '" . $roleID . "'.\n\n";
+}
+else
+{
+    echo "Current userID '" . $userID . "' is *not* member of anonymous roleID '" . $roleID . "'.\n\n";
+}
+
+?>
+
