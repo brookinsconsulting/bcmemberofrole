@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <software>
     <metadata>
-        <name>BC Member of Role By User</name>
+        <name>BC Member of Role</name>
         <version>//autogentag//</version>
         <copyright>Copyright (C) 1999 - 2011 Brookins Consulting</copyright>
         <license>GNU General Public License</license>
-        <info_url>https://github.com/brookinsconsulting/bcmemberofrolebyuser</info_url>
+        <info_url>http://projects.ez.no/bcmemberofrole</info_url>
     </metadata>
 
     <dependencies>

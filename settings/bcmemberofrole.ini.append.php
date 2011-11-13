@@ -1,5 +1,8 @@
 <?php /* #?ini charset="utf-8"?
 
-[BCMemberOfRoleByUserSettings]
+[BCMemberOfRoleSettings]
+#
+# No Settings currently required. Reserved for future use.
+#
 
 */ ?>

@@ -1,4 +1,4 @@
-Name: BCMemberOfRoleByUser
+Name: BCMemberOfRole
 
 Description: eZ Publish Class and Template Operators based on OWSimpleOperator extension for eZ Publish
 
@@ -9,7 +9,7 @@ This solution is copyright (C) 1999 - 2011 Brookins Consulting and licensed unde
 
 A copy of the exact license supported is available on the web from http://www.gnu.org/licenses/gpl-2.0.txt
 
-A copy of the exact license supported is provided within the bcmemberofrolebyuser extension in doc/LICENSE
+A copy of the exact license supported is provided within the bcmemberofrole extension in doc/LICENSE
 
 Please feel free to use this solution freely.
 
@@ -21,13 +21,13 @@ The example 'member_of_role', 'member_of_role_by_user_id' and 'member_of_role_by
 
 Summary
 
-Example 'member_of_role' template operator autoload configuration file (required) and OWSimpleOperator based 'BCMemberOfRoleByUserIDOperator' class and method 'member_of_role' (required).
+Example 'member_of_role' template operator autoload configuration file (required) and OWSimpleOperator based 'BCMemberOfRoleOperators' class and method 'member_of_role' (required).
 
 Provided class methods 'member_of_role', 'member_of_role_by_user_id' and 'member_of_role_by_user' (template operators) accept and requires two parameters.
 
 The methods above require both UserID (integer, contentobject_id) / User (ezuser class object) and RoleID parameters.
 
-The base method fetches the user, user roles, iterates over user roles and compares RoleID param till it finds a match and returns true, false if no match is found / etc.
+The base method fetches the user, user roles, iterates over user roles and compares RoleID param to each of the available user roleIDs untill it finds a match and returns true, false if no match is found / etc.
 
 This code can also be used statically within custom PHP code without making any changes. Remember to clear cache and regenerate autoloads! 
 
@@ -43,7 +43,7 @@ Distribution
 
 This source code is distributed publicly as a solution by Brookins Consulting on github.com
 
-https://github.com/brookinsconsulting/bcmemberofrolebyuser
+https://github.com/brookinsconsulting/bcmemberofrole
 
 Please feel free to use this solution freely.
 
@@ -56,7 +56,7 @@ How to install extension
 
 - Install OWSimpleOperator extension (as needed, https://github.com/Open-Wide/OWSimpleOperator )
 
-- Download the code for this extension from github.com, https://github.com/brookinsconsulting/bcmemberofrolebyuser
+- Download the code for this extension from github.com, https://github.com/brookinsconsulting/bcmemberofrole
 
 - Regenerate autoloads and clear cache!
 
@@ -69,7 +69,7 @@ OWSimpleOperator extension makes available a simple to define PHP template opera
 
 The files provided by this Gist (autoloads and static object method PHP) provide a template operator method to check if a userID is a member of a specific roleID
 
-Example files above provide the 'member_of_role' template operator autoload configuration file (required) and OWSimpleOperator based 'BCMemberOfRoleByUserIDOperator' class and method 'member_of_role' (also required).
+Example files above provide the 'member_of_role' template operator autoload configuration file (required) and OWSimpleOperator based 'BCMemberOfRoleOperators' class and method 'member_of_role' (also required).
 
 Provided class method 'member_of_role' and 'member_of_role_by_user_id' (template operators) accepts and requires two parameters: UserID and RoleID (Both required).
 
@@ -87,7 +87,7 @@ References
 
 This source code is posted in reference to the following forum thread, http://share.ez.no/forums/developer/user-ans-rules
 
-This public github.com repository, https://github.com/brookinsconsulting/bcmemberofrolebyuser
+This public github.com repository, https://github.com/brookinsconsulting/bcmemberofrole
 
 Brookins Consulting on github, https://github.com/brookinsconsulting
 

@@ -51,7 +51,7 @@ $roleID = 1;
 
 // Tests which use the static object methods provided to test for current user role membership
 
-$isMemberOfRole = BCMemberOfRoleByUserIDOperator::member_of_role( $userID, $roleID );
+$isMemberOfRole = BCMemberOfRoleOperators::member_of_role( $userID, $roleID );
 
 if( $isMemberOfRole )
 {
@@ -62,7 +62,7 @@ else
     echo "Current userID '" . $userID . "' is *not* member of anonymous roleID '" . $roleID . "'.\n\n";
 }
 
-$isMemberOfRoleByUser = BCMemberOfRoleByUserIDOperator::member_of_role_by_user( $user, $roleID );
+$isMemberOfRoleByUser = BCMemberOfRoleOperators::member_of_role_by_user( $user, $roleID );
 
 if( $isMemberOfRoleByUser )
 {
@@ -73,7 +73,7 @@ else
     echo "Current userID '" . $userID . "' is *not* member of anonymous roleID '" . $roleID . "'.\n\n";
 }
 
-$isMemberOfRoleByUserID = BCMemberOfRoleByUserIDOperator::member_of_role_by_user_id( $userID, $roleID );
+$isMemberOfRoleByUserID = BCMemberOfRoleOperators::member_of_role_by_user_id( $userID, $roleID );
 
 if( $isMemberOfRoleByUserID )
 {
@@ -85,4 +85,3 @@ else
 }
 
 ?>
-

@@ -1,17 +1,17 @@
 <?php
 /**
- * File containing the BCMemberOfRoleByUserOperator class.
+ * File containing the BCMemberOfRoleOperators class.
  *
- * @name BCMemberOfRoleByUserOperator
+ * @name BCMemberOfRoleOperators
  * @author Brookins Consulting <info a~t brookinsconsulting d~o~t com>
  * @copyright Copyright (C) 1999 - 2011 Brookins Consulting. All rights reserved.
  * @license http://www.gnu.org/licenses/gpl-2.0.txt GNU General Public License v2 (or later)
- * @package bcmemberofrolebyuser
- * @link https://github.com/brookinsconsulting/bcmemberofrolebyuser
- * @version 0.1.7
+ * @package bcmemberofrole
+ * @link http://projects.ez.no/bcmemberofrole
+ * @version 0.1.8
  */
 
-class BCMemberOfRoleByUserOperator extends OWSimpleOperator
+class BCMemberOfRoleOperators extends OWSimpleOperator
 {
     /*!
      * Return true if user roles of the provided userID match provided roleID
