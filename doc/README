@@ -58,7 +58,9 @@ How to install extension
 
 - Download the code for this extension from github.com, https://github.com/brookinsconsulting/bcmemberofrole
 
-- Regenerate autoloads and clear cache!
+- Activate the bcmemberofrole extension within your eZ Publish override or siteaccess settings site.ini.append.php [ExtensionSettings] ActiveExtensions[]=bcmemberofrole
+
+- Regenerate eZ Publish PHP class autoloads and clear eZ Publish caches!
 
 
 The implementation
